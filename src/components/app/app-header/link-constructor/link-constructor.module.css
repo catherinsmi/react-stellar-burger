@@ -1,0 +1,11 @@
+.link {
+    composes: pt-4 pr-5 pb-4 mr-2 from global;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #F2F2F3;
+}
+
+.caption {
+    composes: ml-2 text text_type_main-default from global;
+}

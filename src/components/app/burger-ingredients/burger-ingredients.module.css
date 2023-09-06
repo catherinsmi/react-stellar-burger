@@ -1,0 +1,5 @@
+.section {
+    composes: pt-10 from global;
+    display: flex;
+    flex-direction: column;
+}

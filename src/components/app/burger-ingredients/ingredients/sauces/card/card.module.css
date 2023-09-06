@@ -1,0 +1,33 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 272px;
+    height: 208px;
+}
+
+.img {
+    composes: mr-4 ml-4 from global;
+    width: 240px;
+    height: 120px;
+}
+
+.price-tag {
+    composes: text text_type_digits-default pt-1 pb-1 from global;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.price {
+    composes: text text_type_digits-default from global;
+}
+
+.name {
+    composes: text text_type_main-default from global;
+    max-width: 272px;
+    width: 100%;
+    text-align: center;
+}
