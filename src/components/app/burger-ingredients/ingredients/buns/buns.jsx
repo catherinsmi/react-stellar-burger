@@ -5,7 +5,7 @@ function Buns({buns}) {
 
     return (
         <>
-        <h2 className={styles.header}>Булки</h2>
+        <h2 id='buns' className={styles.header}>Булки</h2>
         <div className={styles.cards}>
             {buns.map(bun => (
                 <Card key={bun._id} bun={bun} />

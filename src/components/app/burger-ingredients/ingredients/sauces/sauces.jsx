@@ -5,7 +5,7 @@ function Sauces({sauces}) {
 
     return (
         <>
-            <h2 className={styles.header}>Соусы</h2>
+            <h2 id='sauces' className={styles.header}>Соусы</h2>
             <div className={styles.cards}>
                 {sauces.map(sauce => (
                     <Card key={sauce._id} sauce={sauce} />

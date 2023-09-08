@@ -6,7 +6,7 @@ function BurgerComponents({ingredients}) {
     const bun = ingredients.find(i => i._id === '60666c42cc7b410027a1a9b1')
   
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', alignItems: 'flex-end' }}>
+        <div className={styles.components}>
         <ConstructorElement
             type="top"
             isLocked={true}

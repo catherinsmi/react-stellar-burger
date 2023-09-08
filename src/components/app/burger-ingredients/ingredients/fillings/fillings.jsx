@@ -5,7 +5,7 @@ function Fillings({fillings}) {
 
     return (
         <>
-            <h2 className={styles.header}>Начинки</h2>
+            <h2 id='fillings' className={styles.header}>Начинки</h2>
             <div className={styles.cards}>
                 {fillings.map(filling => (
                     <Card key={filling._id} filling={filling} />

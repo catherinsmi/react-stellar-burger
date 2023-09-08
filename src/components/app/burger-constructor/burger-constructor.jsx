@@ -2,7 +2,8 @@ import BurgerComponents from './burger-components/burger-components.jsx'
 import PriceTag from './price-tag/price-tag.jsx'
 import { Button } from '@ya.praktikum/react-developer-burger-ui-components'
 import styles from './burger-constructor.module.css'
-
+import PropTypes from 'prop-types'
+import { ingredientPropType } from '../../../utils/prop-types'
 
 function BurgerConstructor({ingredients}) {
     return (
@@ -18,6 +19,8 @@ function BurgerConstructor({ingredients}) {
     )
 }
 
-
+BurgerConstructor.propTypes = {
+    ingredients: PropTypes.arrayOf(ingredientPropType.isRequired)
+}
 
 export default BurgerConstructor
