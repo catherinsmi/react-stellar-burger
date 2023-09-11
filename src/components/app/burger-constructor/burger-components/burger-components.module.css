@@ -1,0 +1,14 @@
+.components {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+    align-items: flex-end;
+}
+.scroll-block {
+    composes:  custom-scroll from global;
+    display: flex;
+    flex-direction: column;
+    max-height: 464px;
+    height: 100%;
+    overflow-y: scroll;
+}

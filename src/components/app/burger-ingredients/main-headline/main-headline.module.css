@@ -1,0 +1,4 @@
+.header {
+    composes: text text_type_main-large pb-5 from global;
+    color: #F2F2F3;
+}

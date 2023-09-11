@@ -1,0 +1,6 @@
+.component {
+    composes: pb-4 from global;
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+}

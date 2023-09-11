@@ -1,0 +1,14 @@
+.section {
+    composes: pt-25 pl-6 from global;
+    max-width: 600px;
+    width: 100%;
+    margin-left: auto;
+}
+
+.order-block {
+    composes: pt-10 from global;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 40px;
+}
