@@ -1,19 +1,17 @@
 import BurgerComponents from './burger-components/burger-components.jsx'
 import PriceTag from './price-tag/price-tag.jsx'
-import { Button } from '@ya.praktikum/react-developer-burger-ui-components'
+import OrderButton from './order-button/order-button.jsx'
 import styles from './burger-constructor.module.css'
 import PropTypes from 'prop-types'
 import { ingredientPropType } from '../../../utils/prop-types'
 
-function BurgerConstructor({ingredients}) {
+function BurgerConstructor({ingredients, setModalActive}) {
     return (
         <section className={styles.section}>
             <BurgerComponents ingredients={ingredients} />
             <div className={styles['order-block']}>
                 <PriceTag />
-                <Button htmlType="button" type="primary" size="medium">
-                    Офрмить заказ
-                </Button>
+                <OrderButton setModalActive={setModalActive} />
             </div>
         </section>
     )

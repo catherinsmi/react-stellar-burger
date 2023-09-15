@@ -3,7 +3,7 @@ import Component from './component/component.jsx'
 import styles from './burger-components.module.css'
 
 function BurgerComponents({ingredients}) {
-    const bun = ingredients.find(i => i._id === '60666c42cc7b410027a1a9b1')
+    const bun = ingredients.find(i => i._id === '643d69a5c3f7b9001cfa093c')
   
     return (
         <div className={styles.components}>
@@ -12,7 +12,7 @@ function BurgerComponents({ingredients}) {
             isLocked={true}
             text="Краторная булка N-200i (верх)"
             price={200}
-            thumbnail={bun.image}
+            // thumbnail={bun.image}
         />
         <div className={styles['scroll-block']}>
             {ingredients.map(ingredient => (
@@ -24,7 +24,7 @@ function BurgerComponents({ingredients}) {
             isLocked={true}
             text="Краторная булка N-200i (низ)"
             price={200}
-            thumbnail={bun.image}
+            // thumbnail={bun.image}
         />
     </div>
     )

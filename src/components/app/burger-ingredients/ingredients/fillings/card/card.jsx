@@ -1,10 +1,10 @@
 import { CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components'
 import styles from './card.module.css'
 
-function Card({filling}) {
+function Card({filling, openPopupIngredient}) {
 
     return (
-        <div className={styles.card}>
+        <div onClick={()=> openPopupIngredient(filling)} className={styles.card}>
             <img src={filling.image} alt={filling.name} className={styles.img} />
             <span className={styles['price-tag']}>
                 <p className={styles.price}>{filling.price}</p>
