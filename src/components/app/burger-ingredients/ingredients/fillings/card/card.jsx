@@ -1,5 +1,6 @@
 import { CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components'
 import styles from './card.module.css'
+import PropTypes from 'prop-types'
 
 function Card({filling, openPopupIngredient}) {
 
@@ -13,6 +14,11 @@ function Card({filling, openPopupIngredient}) {
             <h3 className={styles.name}>{filling.name}</h3>
         </div>
     )
+}
+
+Card.propTypes = {
+    filling: PropTypes.object.isRequired,
+    openPopupIngredient: PropTypes.func
 }
 
 export default Card

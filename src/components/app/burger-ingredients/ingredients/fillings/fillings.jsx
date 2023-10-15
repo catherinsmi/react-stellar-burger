@@ -1,5 +1,6 @@
 import Card from './card/card.jsx'
 import styles from './fillings.module.css'
+import PropTypes from 'prop-types'
 
 function Fillings({fillings, openPopupIngredient}) {
 
@@ -13,6 +14,11 @@ function Fillings({fillings, openPopupIngredient}) {
             </div>
         </>
     )
+}
+
+Fillings.propTypes = {
+    fillings: PropTypes.array.isRequired,
+    openPopupIngredient: PropTypes.func
 }
 
 export default Fillings

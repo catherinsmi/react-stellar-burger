@@ -2,7 +2,8 @@ import styles from "./app.module.css"
 import AppHeader from './app-header/app-header.jsx'
 import BurgerIngredients from './burger-ingredients/burger-ingredients.jsx'
 import BurgerConstructor from './burger-constructor/burger-constructor.jsx'
-import ModalOverlay from "./modal-overlay/modal.jsx"
+import ModalOverlay from "./modal-overlay/modal-overlay.jsx"
+import Modal from "./modal/modal.jsx"
 import OrderDetails from "./order-details/order-details.jsx"
 import IngredientDetails from "./ingredient-details/ingredient-details.jsx"
 import {  useState, useEffect } from "react"
@@ -19,10 +20,14 @@ function App() {
       ingredients: []
     })
 
+    const checkReponse = (res) => {
+      return res.ok ? res.json() : res.json().then((err) => Promise.reject(err));
+    };
+
     const getIngredients = () => {
     setState({ ...state, hasError: false, isLoading: true });
     fetch(URL)
-      .then(res => res.json())
+      .then(checkReponse)
       .then(data => setState({ ...state, ingredients: data.data, isLoading: false }))
       .catch(e => {
         setState({ ...state, hasError: true, isLoading: false });
@@ -31,7 +36,7 @@ function App() {
  
     useEffect(() => {
       getIngredients()
-    }, [state.ingredients])
+    }, [])
 
     function openPopupIngredient(ingredient) {
       setModalIngredientActive(true)
@@ -48,14 +53,17 @@ function App() {
                     <BurgerIngredients openPopupIngredient={openPopupIngredient} ingredients={state.ingredients} />
                     <BurgerConstructor setModalActive={setModalOrderActive} ingredients={state.ingredients} />
                   </div>
-          ) : <p style={{fontSize: '30px'}}>Загрузка...</p>}
-
+          ) : <p className={styles.paragraph}>Загрузка...</p>}
         </div>
         <ModalOverlay isModalActive={isModalOrderActive} onClose={() => setModalOrderActive(false)}>
-          <OrderDetails />
+          <Modal onClose={() => setModalOrderActive(false)}>
+            <OrderDetails />
+          </Modal>  
         </ModalOverlay>
         <ModalOverlay isModalActive={isModalIngredientActive} onClose={() => setModalIngredientActive(false)}>
+          <Modal onClose={() => setModalIngredientActive(false)}>
           <IngredientDetails ingredient={ingredient} />
+          </Modal>
         </ModalOverlay>
       </>
 

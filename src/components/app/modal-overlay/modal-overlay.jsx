@@ -1,6 +1,5 @@
 import ReactDOM from 'react-dom'
-import styles from './modal.module.css'
-import Close from './close/close.jsx'
+import styles from './modal-overlay.module.css'
 import { useEffect } from 'react'
 import PropTypes from 'prop-types'
 
@@ -24,10 +23,7 @@ function ModalOverlay({isModalActive, onClose, children}) {
     return ReactDOM.createPortal(
         <>
             <div className={styles.modal} onClick={onClose} >
-                <div className={styles.content} onClick={(e) => e.stopPropagation()}>
-                    <Close onClose={onClose} />
-                    {children}
-                </div>
+                {children}
             </div>
         </>, 
         modalRoot

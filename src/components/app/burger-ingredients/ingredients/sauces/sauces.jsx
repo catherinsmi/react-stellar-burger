@@ -1,5 +1,6 @@
 import Card from './card/card.jsx'
 import styles from './sauces.module.css'
+import PropTypes from 'prop-types'
 
 function Sauces({sauces, openPopupIngredient}) {
 
@@ -13,6 +14,11 @@ function Sauces({sauces, openPopupIngredient}) {
             </div>
         </>
     )
+}
+
+Sauces.propTypes = {
+    sauces: PropTypes.array.isRequired,
+    openPopupIngredient: PropTypes.func
 }
 
 export default Sauces

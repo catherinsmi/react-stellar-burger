@@ -18,7 +18,8 @@ function BurgerConstructor({ingredients, setModalActive}) {
 }
 
 BurgerConstructor.propTypes = {
-    ingredients: PropTypes.arrayOf(ingredientPropType.isRequired)
+    ingredients: PropTypes.arrayOf(ingredientPropType.isRequired),
+    setModalActive: PropTypes.func
 }
 
 export default BurgerConstructor

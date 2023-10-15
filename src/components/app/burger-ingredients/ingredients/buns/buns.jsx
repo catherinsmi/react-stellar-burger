@@ -1,5 +1,6 @@
 import Card from './card/card.jsx'
 import styles from './buns.module.css'
+import PropTypes from 'prop-types'
 
 function Buns({buns, openPopupIngredient}) {
 
@@ -13,6 +14,11 @@ function Buns({buns, openPopupIngredient}) {
         </div>
         </>
     )
+}
+
+Buns.propTypes = {
+    buns: PropTypes.array.isRequired,
+    openPopupIngredient: PropTypes.func
 }
 
 export default Buns
