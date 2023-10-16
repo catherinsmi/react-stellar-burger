@@ -2,7 +2,6 @@ import styles from "./app.module.css"
 import AppHeader from './app-header/app-header.jsx'
 import BurgerIngredients from './burger-ingredients/burger-ingredients.jsx'
 import BurgerConstructor from './burger-constructor/burger-constructor.jsx'
-import ModalOverlay from "./modal-overlay/modal-overlay.jsx"
 import Modal from "./modal/modal.jsx"
 import OrderDetails from "./order-details/order-details.jsx"
 import IngredientDetails from "./ingredient-details/ingredient-details.jsx"
@@ -55,16 +54,12 @@ function App() {
                   </div>
           ) : <p className={styles.paragraph}>Загрузка...</p>}
         </div>
-        <ModalOverlay isModalActive={isModalOrderActive} onClose={() => setModalOrderActive(false)}>
-          <Modal onClose={() => setModalOrderActive(false)}>
+          <Modal isModalActive={isModalOrderActive} onClose={() => setModalOrderActive(false)}>
             <OrderDetails />
           </Modal>  
-        </ModalOverlay>
-        <ModalOverlay isModalActive={isModalIngredientActive} onClose={() => setModalIngredientActive(false)}>
-          <Modal onClose={() => setModalIngredientActive(false)}>
-          <IngredientDetails ingredient={ingredient} />
+          <Modal isModalActive={isModalIngredientActive} onClose={() => setModalIngredientActive(false)}>
+            <IngredientDetails ingredient={ingredient} />
           </Modal>
-        </ModalOverlay>
       </>
 
     )
