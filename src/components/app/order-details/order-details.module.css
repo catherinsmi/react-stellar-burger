@@ -1,0 +1,23 @@
+.content {
+    composes: mt-30 mb-30 from global;
+    text-align: center;
+}
+
+.order-number {
+    composes: text text_type_digits-large from global;
+    margin: 0;
+}
+
+.identificator {
+    composes: text text_type_digits-default pt-8 from global;
+}
+.image {
+    composes: pt-15 pb-15 from global;
+}
+.status {
+    composes: text text_type_main-small from global;
+
+}
+.instruction {
+    composes: text text_type_main-small text_color_inactive from global;
+}

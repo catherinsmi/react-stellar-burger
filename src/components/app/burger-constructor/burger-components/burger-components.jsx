@@ -1,9 +1,10 @@
 import { ConstructorElement } from '@ya.praktikum/react-developer-burger-ui-components'
 import Component from './component/component.jsx'
 import styles from './burger-components.module.css'
+import PropTypes from 'prop-types'
 
 function BurgerComponents({ingredients}) {
-    const bun = ingredients.find(i => i._id === '60666c42cc7b410027a1a9b1')
+    const bun = ingredients.find(i => i._id === '643d69a5c3f7b9001cfa093c')
   
     return (
         <div className={styles.components}>
@@ -28,6 +29,10 @@ function BurgerComponents({ingredients}) {
         />
     </div>
     )
+}
+
+BurgerComponents.propTypes = {
+    ingredients: PropTypes.array.isRequired,
 }
 
 export default BurgerComponents

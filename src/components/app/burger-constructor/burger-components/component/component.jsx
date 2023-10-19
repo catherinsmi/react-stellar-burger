@@ -1,6 +1,7 @@
 import { ConstructorElement } from '@ya.praktikum/react-developer-burger-ui-components'
 import { DragIcon  } from '@ya.praktikum/react-developer-burger-ui-components'
 import styles from './component.module.css'
+import PropTypes from 'prop-types'
 
 function Component({ingredient}) {
     return (
@@ -14,5 +15,8 @@ function Component({ingredient}) {
         </div>
     )
 }
+Component.propTypes = {
+  ingredient: PropTypes.object.isRequired
 
+}
 export default Component
