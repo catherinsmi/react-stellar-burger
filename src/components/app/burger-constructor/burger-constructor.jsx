@@ -5,10 +5,10 @@ import styles from './burger-constructor.module.css'
 import PropTypes from 'prop-types'
 import { ingredientPropType } from '../../../utils/prop-types'
 
-function BurgerConstructor({ingredients, setModalActive}) {
+function BurgerConstructor({setModalActive}) {
     return (
         <section className={styles.section}>
-            <BurgerComponents ingredients={ingredients} />
+            <BurgerComponents />
             <div className={styles['order-block']}>
                 <PriceTag />
                 <OrderButton setModalActive={setModalActive} />
@@ -18,7 +18,6 @@ function BurgerConstructor({ingredients, setModalActive}) {
 }
 
 BurgerConstructor.propTypes = {
-    ingredients: PropTypes.arrayOf(ingredientPropType.isRequired),
     setModalActive: PropTypes.func
 }
 

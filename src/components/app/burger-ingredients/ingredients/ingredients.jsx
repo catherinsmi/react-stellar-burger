@@ -5,7 +5,9 @@ import styles from './ingredients.module.css'
 import PropTypes from 'prop-types'
 import { ingredientPropType } from '../../../../utils/prop-types.js'
 
-function Ingredients({ingredients, openPopupIngredient}){
+
+function Ingredients({openPopupIngredient, ingredients}){
+    
     const buns = ingredients.filter(i => i.type === 'bun')
     const sauces = ingredients.filter(i => i.type === 'sauce')
     const fillings = ingredients.filter(i => i.type === 'main')
