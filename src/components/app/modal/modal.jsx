@@ -5,7 +5,7 @@ import ModalOverlay from './modal-overlay/modal-overlay';
 import React, {useEffect} from 'react'
 import ReactDOM from 'react-dom'
 
-export default function Modal({isModalActive, onClose, children}) {
+function Modal({isModalActive, onClose, children}) {
 
   const modalRoot = document.getElementById("react-modal")
 
@@ -37,10 +37,10 @@ export default function Modal({isModalActive, onClose, children}) {
   )
 }
 
-
-
 Modal.propTypes = {
   onClose: PropTypes.func.isRequired,
   children: PropTypes.element,
   isModalActive: PropTypes.bool,
 };
+
+export default Modal;

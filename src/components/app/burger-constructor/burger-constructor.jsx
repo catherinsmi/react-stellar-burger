@@ -3,22 +3,23 @@ import PriceTag from './price-tag/price-tag.jsx'
 import OrderButton from './order-button/order-button.jsx'
 import styles from './burger-constructor.module.css'
 import PropTypes from 'prop-types'
-import { ingredientPropType } from '../../../utils/prop-types'
 
-function BurgerConstructor({setModalActive}) {
+
+function BurgerConstructor({setModalActive, sendOrder}) {
     return (
         <section className={styles.section}>
             <BurgerComponents />
             <div className={styles['order-block']}>
                 <PriceTag />
-                <OrderButton setModalActive={setModalActive} />
+                <OrderButton setModalActive={setModalActive} sendOrder={sendOrder} />
             </div>
         </section>
     )
 }
 
 BurgerConstructor.propTypes = {
-    setModalActive: PropTypes.func
+    setModalActive: PropTypes.func,
+    sendOrder: PropTypes.func.isRequired
 }
 
 export default BurgerConstructor
