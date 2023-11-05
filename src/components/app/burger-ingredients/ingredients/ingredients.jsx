@@ -4,11 +4,14 @@ import Fillings from './fillings/fillings.jsx'
 import styles from './ingredients.module.css'
 import PropTypes from 'prop-types'
 import { ingredientPropType } from '../../../../utils/prop-types.js'
+import {  useMemo } from "react"
+import { BUN, SAUCE, MAIN } from '../../../../constants/ingredients.consts'
 
-function Ingredients({ingredients, openPopupIngredient}){
-    const buns = ingredients.filter(i => i.type === 'bun')
-    const sauces = ingredients.filter(i => i.type === 'sauce')
-    const fillings = ingredients.filter(i => i.type === 'main')
+
+function Ingredients({openPopupIngredient, ingredients}){
+    const buns = useMemo(() => ingredients.filter(i => i.type === BUN), [ingredients])
+    const sauces = useMemo(() => ingredients.filter(i => i.type === SAUCE), [ingredients])
+    const fillings = useMemo(() => ingredients.filter(i => i.type === MAIN), [ingredients])
     
     return (
         <div className={styles['scroll-block']}>
@@ -19,7 +22,8 @@ function Ingredients({ingredients, openPopupIngredient}){
     )
 }
 Ingredients.propTypes = {
-    ingredients: PropTypes.arrayOf(ingredientPropType.isRequired)
+    ingredients: PropTypes.arrayOf(ingredientPropType.isRequired),
+    openPopupIngredient: PropTypes.func
 }
 
 export default Ingredients
