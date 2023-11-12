@@ -26,21 +26,28 @@ export const burgstructorSlice = createSlice({
     name: 'burgstructor',
     initialState,
     reducers: {
-      setPickedIngredients(state, action){
-        const findItem = state.pickedIngredients.find(item => item._id === action.payload._id)
+      setPickedIngredients: {
+        reducer: (state, action) => {
+          const findItem = state.pickedIngredients.find(item => item._id === action.payload._id)
 
-        if(findItem){
-          state.pickedIngredients.push({
-            ...action.payload,
-            count: findItem.count++,
-            pickedIngredientId: v4()
-          })
-        } else {
-          state.pickedIngredients.push({
-            ...action.payload,
-            count: 1,
-            pickedIngredientId: v4()
-          })
+            if(findItem){
+              state.pickedIngredients.push({
+                ...action.payload,
+                count: findItem.count++
+              })
+            } else {
+              state.pickedIngredients.push({
+                ...action.payload,
+                count: 1
+              })
+            }
+        },
+        prepare: (ingredient) => {
+          return {
+            payload: {
+              ...ingredient, pickedIngredientId: v4()
+            }
+          }
         }
       },
       setPickedBun(state, action){
@@ -56,7 +63,6 @@ export const burgstructorSlice = createSlice({
       },
       deletePickedIngredient(state, action){
         state.pickedIngredients = state.pickedIngredients.filter(item => item.pickedIngredientId !== action.payload.pickedIngredientId)
-        console.log(state.pickedIngredients)
       }
     }
 

@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { URL } from '../../constants/app.consts'
-import { checkReponse } from "../../utils/check-response";
+import { checkResponse} from "../../utils/check-response";
 
 export const fetchOrder = createAsyncThunk(
     'order/fetchOrderNumber',  async (body) => {
@@ -9,7 +9,7 @@ export const fetchOrder = createAsyncThunk(
           headers: {'content-type': 'application/json'},
           body: JSON.stringify(body)
         })
-        const data = await checkReponse(res)
+        const data = await checkResponse(res)
         return data.order.number
       }
   )

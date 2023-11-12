@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { URL } from '../../constants/app.consts'
-import { checkReponse } from "../../utils/check-response";
+import { checkResponse } from "../../utils/check-response";
 
 export const fetchIngredients = createAsyncThunk(
     'ingredients/fetchIngredientsFromBE', async () => {
         const res = await fetch(`${URL}/ingredients`)
-        const data = await checkReponse(res)
+        const data = await checkResponse(res)
         return data.data
     }
   )
@@ -40,6 +40,7 @@ export const ingredientsSlice = createSlice({
         },
         [fetchIngredients.rejected]: (state, action) => {
             state.items = []
+            state.hasError = true
             
         }
     }
