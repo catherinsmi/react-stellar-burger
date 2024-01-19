@@ -5,13 +5,13 @@ import styles from './burger-constructor.module.css'
 import PropTypes from 'prop-types'
 
 
-function BurgerConstructor({setModalActive, sendOrder}) {
+function BurgerConstructor({setModalActive}) {
     return (
         <section className={styles.section}>
             <BurgerComponents />
             <div className={styles['order-block']}>
                 <PriceTag />
-                <OrderButton setModalActive={setModalActive} sendOrder={sendOrder} />
+                <OrderButton setModalActive={setModalActive} />
             </div>
         </section>
     )
@@ -19,7 +19,6 @@ function BurgerConstructor({setModalActive, sendOrder}) {
 
 BurgerConstructor.propTypes = {
     setModalActive: PropTypes.func,
-    sendOrder: PropTypes.func.isRequired
 }
 
 export default BurgerConstructor

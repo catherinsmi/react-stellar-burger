@@ -1,19 +1,9 @@
 import { CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components'
 import styles from './price-tag.module.css'
-import { ConstructorContext } from '../../../../utils/context'
-import { useContext } from 'react';
+import { useSelector } from 'react-redux';
 
 function PriceTag() {
-    const { totalPrice} = useContext(ConstructorContext);
-
-    // const calculatePrice = (items) => {
-        
-    //     let summa = items.reduce((summa, item) => { 
-    //         return summa += item.price
-    //     }, pickedBun.price * 2)
-    //     return summa
-    // }
-    // let summa = calculatePrice(pickedIngredients)
+    const totalPrice = useSelector(state => state.burgstructor.totalPrice);
     
     return (
         <span className={styles['price-tag']}>
