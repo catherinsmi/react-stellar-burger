@@ -1,0 +1,42 @@
+.container {
+    composes: p-6 from global;
+    border: 2px dotted #4C4CFF;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.price-tag {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.price {
+    composes: text text_type_digits-default from global;
+}
+
+.number {
+    composes: text text_type_digits-default from global;
+    margin: 0;
+}
+
+.title {
+    margin: 0;
+    composes: text text_type_main-medium from global;
+    display: inline;
+}
+.data {
+    composes: text text_type_main-small text_type_digits-small text_color_inactive from global;
+    display: inline;
+    margin: 0;
+}
+.info {
+    display: flex;
+    justify-content: space-between;
+}

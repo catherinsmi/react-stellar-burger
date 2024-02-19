@@ -1,13 +1,19 @@
-import { BurgerIcon  } from '@ya.praktikum/react-developer-burger-ui-components'
-import styles from './link-constructor.module.css'
+import { BurgerIcon } from '@ya.praktikum/react-developer-burger-ui-components';
+import styles from './link-constructor.module.css';
+import { NavLink, useLocation } from 'react-router-dom';
 
 function LinkConstructor() {
-    return (
-        <a href='#' className={styles.link}>
-            <BurgerIcon type="primary" />
-            <p className={styles.caption}>Конструктор</p>
-        </a>
-    )
+  const { pathname } = useLocation();
+
+  return (
+    <NavLink
+      to="/"
+      className={styles.link}
+      style={({ isActive }) => ({ color: isActive ? 'rgb(242, 242, 243)' : '#8585AD' })}>
+      <BurgerIcon type={pathname === '/' ? 'primary' : 'secondary'} />
+      Конструктор
+    </NavLink>
+  );
 }
 
-export default LinkConstructor
+export default LinkConstructor;

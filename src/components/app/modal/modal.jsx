@@ -1,40 +1,40 @@
 import PropTypes from 'prop-types';
-import styles from './modal.module.css'
-import Close from './close/close.jsx'
+import styles from './modal.module.css';
+import Close from './close/close.jsx';
 import ModalOverlay from './modal-overlay/modal-overlay';
-import React, {useEffect} from 'react'
-import ReactDOM from 'react-dom'
+import React, { useEffect } from 'react';
+import ReactDOM from 'react-dom';
+import { useSelector } from 'react-redux';
 
-function Modal({isModalActive, onClose, children}) {
-
-  const modalRoot = document.getElementById("react-modal")
+function Modal({ isModalActive, onClose, children }) {
+  const modalRoot = document.getElementById('react-modal');
 
   useEffect(() => {
-      function handleEscKey(event){
-          if(event.key === 'Escape') {
-              onClose()
-          }
+    function handleEscKey(event) {
+      if (event.key === 'Escape') {
+        onClose();
       }
+    }
 
-      window.addEventListener('keydown', handleEscKey)
-      return () => {
-          window.removeEventListener('keydown', handleEscKey);
-        }
-  }, [])
+    window.addEventListener('keydown', handleEscKey);
+    return () => {
+      window.removeEventListener('keydown', handleEscKey);
+    };
+  }, []);
 
-  if (!isModalActive) return null
+  if (!isModalActive) return null;
   return ReactDOM.createPortal(
-      <>
-        <div className={styles.modal}>    
-          <div className={styles.content} onClick={(e) => e.stopPropagation()}>
-            <Close onClose={onClose} />
-            {children}
-          </div>
+    <>
+      <div className={styles.modal}>
+        <div className={styles.content} onClick={(e) => e.stopPropagation()}>
+          <Close onClose={onClose} />
+          {children}
         </div>
-        <ModalOverlay onClose={onClose}/>
-      </> ,
-      modalRoot
-  )
+      </div>
+      <ModalOverlay onClose={onClose} />
+    </>,
+    modalRoot,
+  );
 }
 
 Modal.propTypes = {

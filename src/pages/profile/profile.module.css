@@ -1,0 +1,23 @@
+.wrapper {
+
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    column-gap: 60px;
+    justify-content: flex-start;
+    margin-top: 180px;
+    
+}
+.link {
+    text-decoration: none;
+    
+    composes: text text_type_main-medium from global;
+
+}
+.list {
+    list-style-type: none;
+    padding-left: 0;
+}
+.caption {
+    composes: pt-20 text text text_type_main-small text_color_inactive from global;
+    width: 320px;
+}

@@ -47,3 +47,8 @@
     background-color: #4C4CFF;
 }
 
+.link {
+    text-decoration: none;
+    color: inherit;
+}
+
